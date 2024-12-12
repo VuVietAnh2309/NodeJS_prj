@@ -1,0 +1,87 @@
+#
+# Let's Chat Built-in Defaults
+#
+
+env: development # development / production
+
+http:
+  enable: true
+  host:
+  port: 8189
+
+https:
+  enable: false
+  host:
+  port: 5001
+  key: key.pem
+  cert: certificate.pem
+
+xmpp:
+  enable: true
+  roomCreation: true
+  debug:
+    handled: true
+    unhandled: true
+  port: 5222
+  domain: vietsens.vn
+  username: node # node / full
+  tls:
+    enable: false
+    key: ./server.key
+    cert: ./server.crt
+
+database:
+  uri: mongodb://localhost:27017/letschat
+  uri_nodb: mongodb://localhost:27017
+  db_name: letschat
+
+secrets:
+  cookie: secretsauce
+
+files:
+  enable: true
+  provider: local
+  maxFileSize: 100000000
+  restrictTypes: true
+  allowedTypes:
+    - 'image/jpeg'
+    - 'image/png'
+    - 'image/gif'
+    - 'application/zip'
+    - 'application/x-zip-compressed'
+    - 'application/x-rar-compressed'
+    - 'application/octet-stream'
+    - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  # .docx
+    - 'application/msword'  # .doc
+    - 'application/pdf'
+    - 'text/plain'  # .txt
+  local:
+    dir: uploads
+
+auth:
+  throttling:
+    enable: true
+    threshold: 3
+  providers: [local] # [local, kerberos, ldap] - You can specify the order
+  local:
+    enableRegistration: true
+    passwordRegex: ^.{1,64}$
+
+private:
+  enable: true
+  roster: online # online / all
+  expire: 360 # false or number of minutes
+
+noRobots: true # Serve robots.txt with disallow
+
+giphy:
+  enable: true
+  rating: pg-13
+  limit: 24
+  apiKey: dc6zaTOxFJmzC
+
+rooms:
+  private: true # TODO
+
+i18n:
+  locale: vi

@@ -1,0 +1,24 @@
+# Let's Chat: Docker Compose
+# https://docs.docker.com/compose/
+#
+# Usage: docker-compose up
+
+
+services:
+  app:
+    image: sdelements/lets-chat:latest
+    ports:
+      - "8080:8080"
+      - "5222:5222"
+    networks:
+      - my-network
+    depends_on:
+      - mongo  # Đảm bảo mongo được khởi động trước khi app
+
+  mongo:
+    image: mongo:latest
+    networks:
+      - my-network
+
+networks:
+  my-network:

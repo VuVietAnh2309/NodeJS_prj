@@ -1,0 +1,31 @@
+<!-- <% extends 'base.html' %> -->
+
+<% block js %>
+    <$ 'enterRoom' | js | safe $>
+<% endblock %>
+
+<% block body %>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333333;
+        }
+        .loader {
+            border: 16px solid #333333; /* Màu nền */
+            border-top: 16px solid #3498db; /* Màu của vòng tròn */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite; /* Hiệu ứng quay */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <div class="loader"></div>
+<% endblock %>

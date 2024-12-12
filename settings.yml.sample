@@ -1,0 +1,42 @@
+#
+# Let's Chat Settings
+#
+# See defaults.yml for all available options
+#
+
+env: development # development / production
+
+http:
+  enable: true
+  host: 'localhost'
+  port: 5000
+
+https:
+  enable: false
+  port: 5001
+  key: key.pem
+  cert: certificate.pem
+
+files:
+  enable: true
+  provider: local
+  local:
+    dir: uploads
+
+xmpp:
+  enable: true
+  port: 5222
+  domain: vietsens.vn
+
+database:
+  uri: mongodb://localhost:27017/letschat
+  uri_nodb: mongodb://localhost:27017
+  db_name: letschat
+
+secrets:
+  cookie: secretsauce
+
+auth:
+  providers: [local]
+  local:
+    enableRegistration: true
